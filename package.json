@@ -13,9 +13,13 @@
   "license": "ISC",
   "dependencies": {
     "@fastify/static": "^6.8.0",
-    "astro": "^0.0.0-devapp-20230213150649",
+    "astro": "^0.0.0-devapp-20230213154406",
     "fastify": "^4.13.0",
     "import-meta-resolve": "^2.2.1",
     "resolve.exports": "^2.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/preact": "^2.0.2",
+    "preact": "^10.12.1"
   }
 }

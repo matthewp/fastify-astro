@@ -1,6 +1,3 @@
-//import fp from 'fastify-plugin'
-import fastifyStatic from '@fastify/static';
-import { fileURLToPath } from 'node:url';
 import { DevApp } from 'astro/app/dev';
 
 export default async function (fastify, { root }) {
@@ -21,6 +18,6 @@ export default async function (fastify, { root }) {
         reply.raw.write(chunk);
       }
       reply.raw.end();
-    })
+    });
   }
 }
