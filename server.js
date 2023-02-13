@@ -1,17 +1,20 @@
 // Require the framework and instantiate it
 import Fastify from 'fastify';
+import fastifyStatic from '@fastify/static';
 import fastifyAstro from './plugin.js';
+import { fileURLToPath } from 'node:url';
 
 const fastify = Fastify({ logger: true });
-
-// Declare a route
-/*fastify.get('/', async (request, reply) => {
-  return { hello: 'world' }
-})*/
 
 fastify.register(fastifyAstro, {
   root: new URL('./', import.meta.url)
 });
+
+
+fastify.register(fastifyStatic, {
+  root: fileURLToPath(new URL('./public/', import.meta.url)),
+  wildcard: false
+})
 
 // Run the server!
 const start = async () => {
@@ -23,11 +26,3 @@ const start = async () => {
   }
 }
 start()
-
-
-/*
-fastify.register(
-  require('./my-plugin'),
-  { options }
-)
-*/
